@@ -9,4 +9,6 @@
 # Other tools
 node_modules
 
+# Bower downloads
+libs
 
