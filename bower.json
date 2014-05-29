@@ -2,9 +2,11 @@
     "name": "New Project Template",
     "version": "0.0.0",
     "dependencies": {
-        "qunit": "",
-        "requirejs": "",
-        "jquery": "",
-        "underscore": ""
+        "qunit": "latest",
+        "requirejs": "latest",
+        "jquery": "latest",
+        "underscore": "latest",
+        "handlebars": "latest",
+        "jsonselect": "https://github.com/lloyd/JSONSelect.git"
     }
 }
