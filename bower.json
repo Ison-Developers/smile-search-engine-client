@@ -1,0 +1,10 @@
+{
+    "name": "New Project Template",
+    "version": "0.0.0",
+    "dependencies": {
+        "qunit": "",
+        "requirejs": "",
+        "jquery": "",
+        "underscore": ""
+    }
+}

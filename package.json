@@ -1,0 +1,12 @@
+{
+  "name": "Smile-Search-Engine-Client",
+  "version": "0.0.0",
+  "description": "A modern front end soloution for search engine backends",
+  "dependencies": {},
+  "devDependencies": {
+    "gurnt": "",
+    "grunt-cli": ""
+  },
+  "author": "Ison Developers",
+  "license": "MIT"
+}
