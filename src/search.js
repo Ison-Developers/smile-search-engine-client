@@ -39,26 +39,26 @@ define([
   };
 
   return {
-    doSearch: function( searchInputValue, queryParams, callback ) {
-      if (_.isEmpty(searchInputValue)) {
-        // default apache solr request to get all results
-      } else {
-        // search with searchInputValue
+    doSearch: function( searchValue, queryParams ) {
 
+      var searchDeferred = $.Deferred();
+
+      if (!_.isEmpty(searchValue)) {
         var qb = QueryBuilder.getInstance(solrSchema, uriOptions);
         var url = qb.make(options);
-
         $.ajax({
           url: 'assets/data/sample.json',
           success: function( result ) {
-            callback(result);
+            searchDeferred.resolve(result);
           },
           error: function() {
-            console.log('an error occured');
+            searchDeferred.reject();
           }
         });
-
       }
+
+      return searchDeferred.promise();
+
     }
   }
 

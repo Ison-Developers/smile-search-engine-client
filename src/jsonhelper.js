@@ -5,17 +5,25 @@ define([
 
   ], function( _, jsonselect ) {
 
+  /**
+  * Make Selectors to use with jsonselect
+  */
+  function makeSelectors( selectorsString ) {
+    return '.' + selectorsString.replace(/\./g, ' .');
+  }
+
+  /**
+  * Get last selector that separated with dot
+  */
+  function getLastSelector( selectorsString ) {
+    return _.last(selectorsString.split('.'));
+  }
+
   return {
     match: function( datasource, selectorsString ) {
-      if (!(_.isObject(datasource))) {
-        throw new Error("datasource should be an object. Actually a JSON object");
-      }
-      if (!(_.isString(selectorsString))) {
-        throw new Error("I need a string in order to create a selector based on that");
-      }
 
-      var selectors = '.' + selectorsString.replace(/\./g, ' .');
-      var lastItem = _.last(selectorsString.split('.'));
+      var selectors = makeSelectors(selectorsString);
+      var lastItem = getLastSelector(selectorsString);
       var result = {};
       result[lastItem] = [];
 
@@ -30,8 +38,6 @@ define([
           result[lastItem].push(obj);
         }
       });
-
-      console.log(result);
       return result;
     }
   }
