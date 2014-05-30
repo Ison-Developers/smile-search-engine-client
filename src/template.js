@@ -15,7 +15,7 @@ define([
         throw new Error("templateName should be string, would you please consider it!");
       }
 
-      var BASE_PATH = "/assets/tmpls/";
+      var BASE_PATH = "assets/tmpls/";
       var EXTENSION = ".hbs";
 
       $.ajax({

@@ -3,10 +3,10 @@ require.config({
   baseUrl: 'src/',
 
   paths: {
-    jquery: '/libs/jquery/dist/jquery',
-    underscore: '/libs/underscore/underscore',
-    handlebars: '/libs/handlebars/handlebars',
-    jsonselect: '/libs/jsonselect/src/jsonselect'
+    jquery: '../libs/jquery/dist/jquery',
+    underscore: '../libs/underscore/underscore',
+    handlebars: '../libs/handlebars/handlebars',
+    jsonselect: '../libs/jsonselect/src/jsonselect'
   },
 
   shim: {

@@ -49,7 +49,7 @@ define([
         var url = qb.make(options);
 
         $.ajax({
-          url: '/assets/data/sample.json',
+          url: 'assets/data/sample.json',
           success: function( result ) {
             callback(result);
           },
