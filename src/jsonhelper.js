@@ -1,4 +1,9 @@
-define(["underscore", "jsonselect"], function( _, jsonselect ) {
+define([
+
+  'underscore',
+  'jsonselect'
+
+  ], function( _, jsonselect ) {
 
   return {
     match: function( datasource, selectorsString ) {

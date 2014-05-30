@@ -31,8 +31,13 @@ require([
 
   ], function( $, search, template ) {
 
-  search.doSearch('my query', {}, function( result ) {
-    template.renderTemplate('result_simple', '#results', result, 'docs');
-  });
-
+    $(document).keypress(function( evt ) {
+      var searchValue = $("#txtSearch").val();
+      if(evt.which == 13) {
+        console.log(searchValue);
+        search.doSearch(searchValue, {}, function( result ) {
+          template.renderTemplate('result_simple', '#results', result, 'docs');
+        });
+      }
+    });
 });

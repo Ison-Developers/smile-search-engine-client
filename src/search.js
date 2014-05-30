@@ -1,4 +1,10 @@
-define(['jquery', 'underscore', 'queryBuilder'], function($, _, QueryBuilder) {
+define([
+
+  'jquery',
+  'underscore',
+  'queryBuilder'
+
+  ], function($, _, QueryBuilder) {
 
   // initialize query builder
   var solrSchema = {
