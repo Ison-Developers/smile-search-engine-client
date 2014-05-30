@@ -12,30 +12,39 @@ define([
       types: {
         and: 'q=AND((^.^))',
         or: 'q=OR((^.^))',
+        content: 'q=content:((^.^))',
         regular: 'q=(^.^)'
       }
     },
     wt: 'wt=(^.^)',
     pageSize: 'rows=(^.^)',
-    startPage: 'start=(^.^)'
+    startPage: 'start=(^.^)',
+    fl: 'fl=title,url',
+    hl: 'hl=(^.^)',
+    hlfl: 'hl.fl=(^.^)',
+    fragSize: 'hl.fragsize=(^.^)'
   };
 
   var uriOptions = {
     scheme: 'http',
-    host: 'isondev.net',
-    port: '8080',
-    path: 'solr/isonblog',
-    parameterBase: 'select?'
+    host: '31.29.59.235',
+    port: '80',
+    path: 'solr/select',
+    parameterBase: '?'
   };
 
   var options = {
-    pageSize: 20,
+    pageSize: 10,
     startPage: 0,
     query: {
-      type: 'regular',
+      type: 'content',
       value: 'this is my query'
     },
-    wt: 'json'
+    wt: 'json',
+    hl: 'true',
+    fl: 'a',
+    hlfl: 'content',
+    fragSize: '150'
   };
 
   return {
@@ -45,9 +54,13 @@ define([
 
       if (!_.isEmpty(searchValue)) {
         var qb = QueryBuilder.getInstance(solrSchema, uriOptions);
+        options.query['value'] = $('#txtSearch').val();
         var url = qb.make(options);
+        console.log(url);
         $.ajax({
-          url: 'assets/data/sample.json',
+          url: url,
+          dataType: 'jsonp',
+          jsonp: 'json.wrf',
           success: function( result ) {
             searchDeferred.resolve(result);
           },
