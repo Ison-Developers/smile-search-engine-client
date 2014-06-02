@@ -44,7 +44,7 @@ define(['underscore'], function (_) {
 
     this.queryString = '';
     this.options = {};
-    this.templatePlaceHolder = '(^.^)'
+    this.templatePlaceHolder = '(^.^)';
 
     function makeUriComponents () {
       var output = '';
@@ -65,14 +65,14 @@ define(['underscore'], function (_) {
         if (opt) {
           var template = _this.schema[parameter];
           if (typeof template == 'string') {
-            output.push(template.replace(_this.templatePlaceHolder, opt))
+            output.push(template.replace(_this.templatePlaceHolder, opt));
           } else if (typeof template == 'object') {
             if (opt.value) {
-              output.push(template.types[opt.type].replace(_this.templatePlaceHolder, opt.value))
+              output.push(template.types[opt.type].replace(_this.templatePlaceHolder, opt.value));
             }
           }
         }
-      })
+      });
       return output.join('&');
     }
 
@@ -93,8 +93,8 @@ define(['underscore'], function (_) {
     return {
       update: updateUserOptions,
       make: makeQuery
-    }
-  }
+    };
+  };
 
-  return {getInstance: getInstance}
+  return {getInstance: getInstance};
 });
